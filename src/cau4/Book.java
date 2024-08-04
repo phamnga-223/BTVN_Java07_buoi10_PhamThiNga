@@ -1,21 +1,9 @@
-package cau2;
+package cau4;
 
 import java.util.Scanner;
 
-/**
- * Câu 2: Tạo một hệ thống quản lý thư viện với các loại sách khác nhau như Sách giáo khoa và Sách tham khảo.
- *  	1. Lớp cơ sở Book:
- *  		+ title, author, isbn
- *  		+ displayInfo()
- *  	2. Lớp kế thừa TextBook:
- *  		+ thuộc tính bổ sung: subject
- *  		+ displayInfo()
- *  	3. Lớp kế thừa ReferenceBook:
- *  		+ thuộc tính bổ sung: field
- *  		+ displayInfo()
- */
 public class Book {
-	
+
 	private String title;
 	private String author;
 	private String isbn;
@@ -58,5 +46,5 @@ public class Book {
 	public void setScanner(Scanner scanner) {
 		this.scanner = scanner;
 	}
-
+	
 }

@@ -2,27 +2,37 @@ package cau1;
 
 public class FullTimeEmployee extends Employee {
 
-	private String benefits;
+	private long benefits;
 	
-	public FullTimeEmployee(String name, int age, String benefits) {
-		super(name, age);
-		this.benefits = benefits;
-	}
-	
-	public String getBenefits() {
+	public long getBenefits() {
 		return benefits;
 	}
 
-	public void setBenefits(String benefits) {
+	public void setBenefits(long benefits) {
 		this.benefits = benefits;
 	}
 
-	public void display_info() {
+	public void displayInfo() {
 		System.out.println("FullTimeEmployee: " + getName() + "; Age: " + getAge()
 				+ "; Salary: " + getSalary() + "; Benefits: " + this.benefits);
 	}
 	
-	public long calculate_salary() {
-		return 30000000;
+	public void calculateSalary() {
+		long result = this.getSalary() + this.benefits;
+		System.out.println("Calculate Salary: " + result);
+	}
+	
+	@Override
+	public void inputData() {
+		super.inputData();
+		try {
+			do {
+				System.out.print("Benefits: ");
+				this.benefits = this.getScanner().nextLong();
+			} while (this.benefits <= 0);
+		} catch (Exception ex) {
+			System.out.println("Đã có lỗi xảy ra!");
+			ex.printStackTrace();
+		}
 	}
 }

@@ -17,15 +17,11 @@ import java.util.Scanner;
  */	
 public class Employee {
 	
+	private Scanner scanner;
+	
 	private String name;
 	private int age;
 	private long salary;
-	
-	public Employee(String name, int age) {
-		this.name = name;
-		this.age = age;
-		this.salary = calculate_salary();
-	}
 
 	public String getName() {
 		return name;
@@ -51,19 +47,43 @@ public class Employee {
 		this.salary = salary;
 	}
 	
-	public void display_info() {
+	public Scanner getScanner() {
+		return scanner;
+	}
+
+	public void setScanner(Scanner scanner) {
+		this.scanner = scanner;
+	}
+
+	public void displayInfo() {
 		System.out.println("Employee: " + this.name + "; Age: " + this.age + "; Salary: " + this.salary);
 	}
 	
-	public long calculate_salary() {
-		return this.salary;
+	public void calculateSalary() {
+		System.out.println("Salary: " + this.salary);
 	}
 	
-	public void nhap() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Xin vui lòng nhập các thông tin sau: ");
-		System.out.println("Name: ");
-		this.name = scanner.nextLine();
-		System.out.println("Age: ");
+	public void inputData() {
+		try {
+			this.scanner = new Scanner(System.in);
+			System.out.println("Xin vui lòng nhập các thông tin sau: ");
+			do {
+				System.out.print("Name: ");
+				this.name = scanner.nextLine();
+			} while (this.name.strip().equals(""));
+			
+			do {
+				System.out.print("Age: ");
+				this.age = scanner.nextInt();
+			} while (this.age <= 0);
+			
+			do {
+				System.out.print("Salary: ");
+				this.salary = scanner.nextLong();
+			} while (this.salary <= 0);
+		} catch (Exception ex) {
+			System.out.println("Đã có lỗi xảy ra!");
+			ex.printStackTrace();
+		}
 	}
 }

@@ -1,23 +1,37 @@
 package cau1;
 
-public class PartTimeEmployee extends FullTimeEmployee {
+public class PartTimeEmployee extends Employee {
 
 	private double hoursWorked;
 	private double hourlyRate;
-	
-	public PartTimeEmployee(String name, int age, String benefits, double hoursWorked, double hourlyRate) {
-		super(name, age, benefits);
-		this.hoursWorked = hoursWorked;
-		this.hourlyRate = hourlyRate;
-	}
 
-	public void display_info() {
+	public void displayInfo() {
 		System.out.println("PartTimeEmployee: " + getName() + "; Age: " + getAge() + "; Salary: " + getSalary()
-				+ "; Benefits: " + getBenefits() + "; Hours worked: " + this.hoursWorked
+				+ "; Hours worked: " + this.hoursWorked
 				+ "; Hourly rate: " + this.hourlyRate);
 	}
 	
-	public long calculate_salary() {
-		return 10000000;
+	public void calculateSalary() {
+		long result = this.getSalary() + (long) (this.hoursWorked * this.hourlyRate);
+		System.out.println("Calculate Salary: " + result);
+	}
+	
+	@Override
+	public void inputData() {
+		super.inputData();
+		try {
+			do {
+				System.out.print("Hours Worked: ");
+				this.hoursWorked = this.getScanner().nextDouble();
+			} while (this.hoursWorked <= 0);
+			
+			do {
+				System.out.print("Hours Rate: ");
+				this.hourlyRate = this.getScanner().nextDouble();
+			} while (this.hourlyRate <= 0);
+		} catch (Exception ex) {
+			System.out.println("Đã có lỗi xảy ra!");
+			ex.printStackTrace();
+		}
 	}
 }

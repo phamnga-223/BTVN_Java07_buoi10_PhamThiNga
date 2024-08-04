@@ -1,34 +1,25 @@
 package cau1;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import cau2.ReferenceBook;
-import cau2.TextBook;
-
 public class Application {
 
-	public static void main(String[] args) {		
-//		List<Employee> listEmployee = new ArrayList<Employee>();
-//		Employee employee = new Employee("Nguyen Van Linh", 29);
-//		listEmployee.add(employee);
-//		FullTimeEmployee ftEmploy = new FullTimeEmployee("Tran Van Tu", 20, "Tuần off 2 buổi, Tiền xe 500K");
-//		listEmployee.add(ftEmploy);
-//		PartTimeEmployee ptEmploy = new PartTimeEmployee("Pham Thi Nga", 23, "Tuần of2 2 buổi", 4, 3);
-//		listEmployee.add(ptEmploy);
-//		
-//		for (Employee e:listEmployee) {
-//			e.display_info();
-//		}
+	public static void main(String[] args) {
+		System.out.println("--------------Employee----------------");
+		Employee employee = new Employee();
+		employee.inputData();
+		employee.calculateSalary();
+		employee.displayInfo();
 		
-		//Cau 2:
-		TextBook textBook = new TextBook();
-		textBook.inputData();
-		textBook.displayInfo();
+		System.out.println("--------------Fulltime Employee----------------");
+		FullTimeEmployee ftEmployee = new FullTimeEmployee();
+		ftEmployee.inputData();
+		ftEmployee.calculateSalary();
+		ftEmployee.displayInfo();
 		
-		ReferenceBook referBook = new ReferenceBook();
-		referBook.inputData();
-		referBook.displayInfo();
+		System.out.println("--------------Partime Employee----------------");
+		PartTimeEmployee ptEmployee = new PartTimeEmployee();
+		ptEmployee.inputData();
+		ptEmployee.calculateSalary();
+		ptEmployee.displayInfo();
 	}
 	
 }

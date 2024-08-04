@@ -2,6 +2,22 @@ package cau3;
 
 import java.util.Scanner;
 
+/**
+ * Câu 3: Quản lý hệ thống trường học với các lớp học sinh, giáo viên, quản lý các khóa học mà họ
+ * tham gia/giảng dạy.
+ * 		1. Lớp cơ sở Person:
+ * 			+ name, age, address
+ * 			+ displayInfo()
+ * 		2. Lớp kế thừa Student
+ * 			+ tt bổ sung: studentId, courses
+ * 			+ displayInfo(), enroll(course)
+ * 		3. Lớp kế thừa Teacher
+ * 			+ tt bổ sung: employeeId, subjects
+ * 			+ displayInfo(), assigin(subject)
+ * 		4. Course:
+ * 			+ courseName, courseCode, teacher
+ * 			+ assignTeacher(teacher), displayInfo()
+ */
 public class Person {
 
 	private Scanner scanner;
